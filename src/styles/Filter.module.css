@@ -1,0 +1,52 @@
+.button {
+    background: lightgreen;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 700;
+    margin: 10px;
+    transition: all 0.2s ease;
+    transform: scale(1);
+}
+
+.button:hover {
+    opacity: 0.7;
+}
+
+.button:last-child {
+    background: rgb(221, 86, 86);
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+}
+
+.filterSelected {
+    display: flex;
+    align-items: center;
+    margin: 10px 10px 0;
+}
+
+.filterSelected > span {
+    display: flex;
+    width: max-content;
+    flex: 0.3 0 0;
+}
+
+.filterSelected > div:last-child,
+.filterSelected > input {
+    flex: 1 0 0;
+}
+
+@media screen and (max-width: 425px) {
+    .filterSelected > span {
+        display: flex;
+        width: max-content;
+        flex: 0.7 0 0;
+        font-weight: bolder;
+    }
+}
+
+.button {
+    color: #000000;
+}
