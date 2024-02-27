@@ -19,7 +19,6 @@ export const useFetching = () => {
 			const body = {"action": "get_fields"}
 			const bodyBrand = {"action": "get_fields", "params": {"field" : "brand"}}
 			const bodyPrice = {"action": "get_fields", "params": {"field" : "price"}}
-			const bodyLength = {"action": "get_ids"}
 
 			const res = await axios.post(API, body, option)
 			setFilterOptions(res.data.result)
@@ -30,7 +29,20 @@ export const useFetching = () => {
 
 			const resPrice = await axios.post(API, bodyPrice, option) 
 			setPrices(Array.from(new Set(resPrice.data.result)).sort((a,b) => a-b))
+			getTotalPages()
 
+		} catch (error) {
+			const mes = errorIdentifier(error)
+			if (mes) {
+				setTipForSpin('Произошла ошибка в подключении. Пробуем подключиться к серверу заново.')
+				setTimeout(() => getFields(), 2000)
+			}
+		}
+	}
+
+	const getTotalPages = async () => {
+		try {
+			const bodyLength = {"action": "get_ids"}
 			const resLength = await axios.post(API, bodyLength, option)
 			const length = resLength.data.result.length
 			setTotalPages(Math.ceil(length / LIMIT))
@@ -117,5 +129,8 @@ export const useFetching = () => {
 		brands,
 		prices,
 		tipForSpin,
+		getTotalPages,
+		getFields
+
 	]
 }

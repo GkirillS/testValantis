@@ -16,7 +16,7 @@ const App = () => {
 
 
 
-  const [isLoading, store, fetching, totalPages, filterOptions, brands, prices, tipForSpin] = useFetching()
+  const [isLoading, store, fetching, totalPages, filterOptions, brands, prices, tipForSpin, getTotalPages] = useFetching()
 
   const handleFilter = () => {
     const params = {}
@@ -34,6 +34,7 @@ const App = () => {
       setSelectedBrand('')
       setSelectedPrice('')
       setProduct('')
+      getTotalPages()
       setPage(1)
       setFilterActive(false)
       fetching(page)
