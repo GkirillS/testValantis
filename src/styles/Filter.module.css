@@ -27,25 +27,14 @@
     margin: 10px 10px 0;
 }
 
-.filterSelected > span {
-    display: flex;
-    width: max-content;
-    flex: 0.3 0 0;
-}
-
-.filterSelected > div:last-child,
-.filterSelected > input {
+.filterSelected > div {
     flex: 1 0 0;
 }
 
-@media screen and (max-width: 425px) {
-    .filterSelected > span {
-        display: flex;
-        width: max-content;
-        flex: 0.7 0 0;
-        font-weight: bolder;
-    }
+div.filterSelected > div > div:first-child {
+    padding: 0;
 }
+
 
 .button {
     color: #000000;

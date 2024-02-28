@@ -54,7 +54,7 @@ const Filter = ({ handleFilterClear, isLoading, selectedBrand, setSelectedBrand,
 				</Form.Item>
 
 				{selectedFilterOption === 'brand' &&
-					<Form.Item label='Бренд' className={cl.filterSelected} tyle={{margin: 0}} name="SelectBrand" rules={[{ required: true, message: '' }]}>
+					<Form.Item label='Бренд' className={cl.filterSelected}  name="SelectBrand" rules={[{ required: true, message: '' }]}>
 						<Select
 							required 
 							onChange={(value) => setSelectedBrand(value)}
@@ -64,7 +64,7 @@ const Filter = ({ handleFilterClear, isLoading, selectedBrand, setSelectedBrand,
 					</Form.Item>
 				}
 				{selectedFilterOption === 'price' &&
-					<Form.Item className={cl.filterSelected} label='Цена' style={{margin: 0}} name="SelectPrice" rules={[{ required: true, message: '' }]}>
+					<Form.Item className={cl.filterSelected} label='Цена' name="SelectPrice" rules={[{ required: true, message: '' }]}>
 						<TreeSelect
 							required
 							dropdownStyle={{ maxHeight: 'auto', overflow: 'auto' }}
@@ -75,7 +75,7 @@ const Filter = ({ handleFilterClear, isLoading, selectedBrand, setSelectedBrand,
 					</Form.Item>
 				}
 				{selectedFilterOption === 'product' &&
-					<Form.Item className={cl.filterSelected} label='Наименование продукта' style={{margin: 0}} name="InputProduct" rules={[{ required: true, message: '' }]}>
+					<Form.Item className={cl.filterSelected} label='Наименование продукта' name="InputProduct" rules={[{ required: true, message: '' }]}>
 						<Input placeholder='кольцо' onChange={(e) => setProduct(e.target.value)}/>
 					</Form.Item>
 				}

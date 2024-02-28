@@ -81,7 +81,6 @@ export const useFetching = () => {
 		try {
 			if (method === 'get_ids') {
 				const ids = await getIds(page)
-				console.log(ids)
 				const items = await getItems(ids.data.result) //Запрос по id без применения фильтра с учетом limit
 				const itemsUnique = checkDuplicates(items.data.result)
 				itemsUnique.length = 50
